@@ -7,7 +7,8 @@ export class FetchData extends Component {
     super(props);
     this.state = { tableValues: [], loading: true };
 
-    fetch('https://wth-wiki-qwiz-be.herokuapp.com/api/values', {
+    // https://localhost:5001/api/trivia
+    fetch('https://wth-wiki-qwiz-be.herokuapp.com/api/trivia', {
       method: "GET",
       headers: {
         'Accept': 'application/json',
@@ -26,19 +27,24 @@ export class FetchData extends Component {
   }
 
   static renderTable(tableValues) {
+    tableValues = tableValues.questions;
     console.log("Table values:");
     console.log(tableValues);
     return (
       <table className='table'>
         <thead>
           <tr>
-            <th>Values</th>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Wrong</th>
           </tr>
         </thead>
         <tbody>
           {tableValues.map((tableValue, i) =>
             <tr key={i}>
-              <td>{tableValue}</td>
+              <td>{tableValue.question}</td>
+              <td>{tableValue.answer}</td>
+              <td>{tableValue.wrongAnswers}</td>
             </tr>
           )}
         </tbody>
