@@ -7,7 +7,7 @@ export class FetchData extends Component {
     super(props);
     this.state = { tableValues: [], loading: true };
 
-    fetch('https://localhost:5001/api/values', {
+    fetch('https://wth-wiki-qwiz-be.herokuapp.com/api/values', {
       method: "GET",
       headers: {
         'Accept': 'application/json',
