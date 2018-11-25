@@ -1,6 +1,6 @@
 html, body { height: 90%; padding: 0; margin: 0; }
 button{
-    width: 50%; height: 50%; float: left;
+    width: 50%; height: 100px; float: left;
 }
 #answer1{
     background-color: #4CAF50;
@@ -13,6 +13,9 @@ button{
 }
 #answer4{
     background-color: #ff9933;
+}
+.answer {
+    border: none;
 }
 
 #buttons{

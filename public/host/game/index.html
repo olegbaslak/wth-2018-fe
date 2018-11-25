@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html class="page-flowers">
     <head>
-        <title>Game | KahootClone</title>
+        <title>Game | WHAT THE QUIZ?!</title>
+        <link rel = "stylesheet" href = "../../css/general.css">
         <link rel = "stylesheet" href = "../../css/hostGameView.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
     </head>
     <body>
-        <h4 id = "questionNum">Question 1 / x</h4>
-        <h4 id = "playersAnswered">Players Answered: 0 / x</h4>
-        <h3 id = "timerText">Time Left:<span id = "num"> 20</span></h3>
-        
-        
-        <div class = "square" id = "square1"></div>
-        <div class = "square" id = "square2"></div>
-        <div class = "square" id = "square3"></div>
-        <div class = "square" id = "square4"></div>
-        
-        <h2 id = "question">Question</h2>
-        <h3 id = "answer1">Answer</h3>
-        <br>
-        <h3 id = "answer2">Answer</h3>
-        <br>
-        <h3 id = "answer3">Answer</h3>
-        <br>
-        <h3 id = "answer4">Answer</h3>
-        
-        <br>
-        <button onclick = "nextQuestion()" id = "nextQButton">Next Question</button>
-        
-        <h2 id = "winnerTitle">Top 5 Players</h4>
-        <h3 id = "winner1">1.</h3>
-        <h3 id = "winner2">2.</h3>
-        <h3 id = "winner3">3.</h3>
-        <h3 id = "winner4">4.</h3>
-        <h3 id = "winner5">5.</h3>
+        <div class="frame">
+            <h4 id = "playersAnswered">Players Answered: 0 / x</h4>
+            <h3 id = "timerText">Time Left:<span id = "num"> 20</span></h3>
+
+
+            <div class = "square" id = "square1"></div>
+            <div class = "square" id = "square2"></div>
+            <div class = "square" id = "square3"></div>
+            <div class = "square" id = "square4"></div>
+
+            <div class="question-answer">
+                <div class="question">
+                    <h2>What is the name of this meme?</h2>
+                    <h2 id = "question">Question</h2>
+                </div>
+                <div class="answers">
+                    <h3 class="answers__answer" id = "answer1">Answer</h3>
+                    <h3 class="answers__answer" id = "answer2">Answer</h3>
+                    <h3 class="answers__answer" id = "answer3">Answer</h3>
+                    <h3 class="answers__answer" id = "answer4">Answer</h3>
+                </div>
+            </div>
+
+            <br>
+            <p class="button-wrapper">
+                <button class="button" onclick = "nextQuestion()" id = "nextQButton">Next Question</button>
+            </p>
+
+            <h2 id="game-over">GAME OVER</h2>
+            <h2 id = "winnerTitle">Top 5 Players</h2>
+            <h3 id = "winner1">1.</h3>
+            <h3 id = "winner2">2.</h3>
+            <h3 id = "winner3">3.</h3>
+            <h3 id = "winner4">4.</h3>
+            <h3 id = "winner5">5.</h3>
+        </div>
         
         <script src = "../../socket.io/socket.io.js"></script>
         <script src = "../../js/libs/jqueryLibrary.js"></script>

@@ -1,15 +1,22 @@
 var socket = io();
-var questionNum = 1; //Starts at two because question 1 is already present
+var loader = document.querySelector('.loader');
 
 function updateDatabase(){
     var name = document.getElementById('name').value;
     var qty = document.getElementById('qty').value;
 
-    fetch(`https://wth-wiki-qwiz-be.herokuapp.com/api/trivia?count=${qty}`)
+    showLoader();
+    fetch(`https://wth-wiki-qwiz-be.herokuapp.com/api/trivia/${qty}?s=Meme`)
         .then(response => response.json())
         .then(json => {
+            hideLoader();
             var quiz = {id: 0, "name": name, "questions": json.questions};
             socket.emit('newQuiz', quiz);
+        })
+        .catch(err => {
+            console.log(err);
+            alert('Sorry, try later');
+            hideLoader();
         });
 }
 
@@ -18,6 +25,14 @@ function cancelQuiz(){
     if (confirm("Are you sure you want to exit? All work will be DELETED!")) {
         window.location.href = "../";
     }
+}
+
+function showLoader() {
+    loader.style.display = 'block';
+}
+
+function hideLoader() {
+    loader.style.display = 'none';
 }
 
 socket.on('startGameFromCreator', function(data){

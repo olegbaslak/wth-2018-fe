@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html class="page-flowers">
     <head>
-        <title>Join | KahootClone</title>
-        <link rel = "stylesheet" href = "css/index.css">
+        <title>Join | WHAT THE QUIZ?!</title>
+        <link rel = "stylesheet" href = "css/general.css">
+        <!--<link rel = "stylesheet" href = "css/index.css">-->
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1 id = "title">Join a Game</h1>
-        <form action="/player/">
-                <div class="form-field">
-                    <label id = "label">Display Name</label>
-                    <input id = "name" type = "text" name="name" autofocus/>
-                </div>
-                <br>
-                <div class="form-field">
-                    <label id = "label">Game Pin</label>
-                    <input id = "pin" type="number" name="pin"/>
-                </div>
-                <br>
-                <div class="form-field">
-                    <button id = "joinButton">Join</button>
-                </div>
-        </form>
-        <br/>
-        <center><a href = "/create/" id = "host">Click here to host a Kahoot!</a></center>
+        <div class="frame frame--small">
+            <h1 id = "title" class="title-main">WHAT THE <span class="big">QUIZ?!</span></h1>
+            <form action="/player/">
+                    <div class="form-field">
+                        <label id = "label" class="label">Display Name</label>
+                        <input id = "name" class="input" type = "text" name="name" autofocus/>
+                    </div>
+                    <br>
+                    <div class="form-field">
+                        <label id = "label" class="label">Game Pin</label>
+                        <input id = "pin" class="input" type="number" name="pin"/>
+                    </div>
+                    <br>
+                    <div class="form-field">
+                        <button id = "joinButton" class="button">Join</button>
+                    </div>
+            </form>
+            <br/>
+            <center><a href = "/create/" id = "host">Click here to host a quiz!</a></center>
+        </div>
     </body>
 </html>

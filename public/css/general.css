@@ -1,0 +1,156 @@
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: #25662e;
+    font-weight: bold;
+}
+
+.page-flowers {
+    background: url('../images/pattern-backround.png');
+    background-size: 250px auto;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.page-flowers body {
+    background: linear-gradient(136deg, #3ab54a 0%, #25662e 50%, transparent 50.2%, transparent 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 45px 15px;
+}
+
+@media (min-width: 400px) {
+    .page-flowers body {
+        padding: 45px;
+    }
+}
+
+.frame {
+    border: 15px solid #a61a00;
+    border-left-width: 20px;
+    border-right-width: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.frame--small {
+    max-width: 500px;
+}
+
+.clear {
+    clear: both;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 0px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    text-align: center;
+}
+
+.label {
+    display: block;
+    text-align: center;
+    font-size: 25px;
+}
+
+.button,
+#game-list button{
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 17px;
+    border-top-left-radius: 33px;
+    box-shadow: 8px 8px 0 #9c2713;
+    cursor: pointer;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    background: linear-gradient(to right, #fa593d 0%, #aa1d02 100%);
+}
+
+.title-main {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 38px;
+    line-height: 50px;
+}
+.title-main .big {
+    font-size: 66px;
+    display: block;
+}
+@media (min-width: 1000px) {
+    .title-main{
+        font-size: 60px;
+        line-height: 75px;
+    }
+    .title-main .big {
+        font-size: 105px;
+    }
+}
+
+.loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.loader:before {
+    content: '';
+    width: 238px;
+    height: 238px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -119px;
+    margin-top: -119px;
+    background: url('../images/pattern-backround.png') center white;
+    animation: spin 10s infinite linear;
+}
+
+.loader-sm {
+    background: url('../images/pattern-backround.png') center white;
+    background-size: 100px;
+    animation: spin 10s infinite linear;
+    width: 50px;
+    height: 50px;
+}
+
+.button-wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}

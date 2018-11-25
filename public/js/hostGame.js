@@ -142,24 +142,33 @@ socket.on('GameOver', function(data){
     document.getElementById('answer2').style.display = "none";
     document.getElementById('answer3').style.display = "none";
     document.getElementById('answer4').style.display = "none";
+    document.getElementById('question').style.display = "none";
     document.getElementById('timerText').innerHTML = "";
-    document.getElementById('question').innerHTML = "GAME OVER";
     document.getElementById('playersAnswered').innerHTML = "";
-    
-    
-    
-    document.getElementById('winner1').style.display = "block";
-    document.getElementById('winner2').style.display = "block";
-    document.getElementById('winner3').style.display = "block";
-    document.getElementById('winner4').style.display = "block";
-    document.getElementById('winner5').style.display = "block";
+
+
+    document.getElementById('game-over').style.display = 'block';
     document.getElementById('winnerTitle').style.display = "block";
-    
-    document.getElementById('winner1').innerHTML = "1. " + data.num1;
-    document.getElementById('winner2').innerHTML = "2. " + data.num2;
-    document.getElementById('winner3').innerHTML = "3. " + data.num3;
-    document.getElementById('winner4').innerHTML = "4. " + data.num4; 
-    document.getElementById('winner5').innerHTML = "5. " + data.num5;
+    if (data.num1) {
+        document.getElementById('winner1').style.display = "block";
+        document.getElementById('winner1').innerHTML = "1. " + data.num1;
+    }
+    if (data.num2) {
+        document.getElementById('winner2').innerHTML = "2. " + data.num2;
+        document.getElementById('winner2').style.display = "block";
+    }
+    if (data.num3) {
+        document.getElementById('winner3').innerHTML = "3. " + data.num3;
+        document.getElementById('winner3').style.display = "block";
+    }
+    if (data.num4) {
+        document.getElementById('winner4').innerHTML = "4. " + data.num4;
+        document.getElementById('winner4').style.display = "block";
+    }
+    if (data.num5) {
+        document.getElementById('winner5').innerHTML = "5. " + data.num5;
+        document.getElementById('winner5').style.display = "block";
+    }
 });
 
 

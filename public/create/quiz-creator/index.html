@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html class="page-flowers">
     <head>
-        <title>Creator | KahootClone</title>
+        <title>Creator | WHAT THE QUIZ?!</title>
+        <link rel = "stylesheet" href = "../../css/general.css">
         <link rel = "stylesheet" href = "../../css/quizCreator.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     </head>
     <body>
-        <h1 id = "title">Create new quiz</h1>
-        
-        <div class="form-field">
-            <label id = "quizTitle">Quiz name:</label>
-            <input id = "name" type = "text" name="name" autofocus/>
-        </div>
-        <br>
-        <br>
+        <div class="loader"></div>
+        <div class="frame frame--small">
+            <h1 id = "title">Create new quiz</h1>
 
-        <div class="form-field">
-            <label>Question quantity:</label>
-            <input id = "qty" type = "text" name="qty" autofocus/>
+            <div class="form-field">
+                <label id = "quizTitle" class="label">Quiz name:</label>
+                <input id = "name" class="input" type = "text" name="name" autofocus/>
+            </div>
+            <br>
+            <br>
+
+            <div class="form-field">
+                <label class="label">Question quantity:</label>
+                <input id = "qty" class="input" type = "text" name="qty" autofocus/>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-field">
+                <button onclick = "updateDatabase()" class="button">Create Quiz</button>
+            </div>
+
+            <br>
+
+            <button onclick = 'cancelQuiz()' class="button">Cancel quiz and return to quiz selection</button>
         </div>
-        
-        <br>
-        <br>
-        
-        <div class="form-field">
-            <button onclick = "updateDatabase()">Create Quiz</button>
-        </div>
-        
-        <br>
-        
-        <button onclick = 'cancelQuiz()'>Cancel quiz and return to quiz selection</button>
         
         <script src = "../../socket.io/socket.io.js"></script>
         <script src = "../../js/quizCreator.js"></script>

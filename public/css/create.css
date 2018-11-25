@@ -49,7 +49,12 @@ body {
     text-align: center;
 }
 #gameButton{
-    font-size:80px;
+    padding: 7px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px #391c55;
+    font-size: 44px;
+    background: #8a4ec4;
+    border: none;
 }
 #gameButton:hover{
     cursor: pointer;

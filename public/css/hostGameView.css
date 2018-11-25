@@ -1,34 +1,30 @@
 #answer1{
     background-color: #4CAF50;
-    margin: auto;
     padding: 30px 20px;
-    height: 50%;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
 }
 #answer2{
     background-color: #f94a1e;
-    margin: auto;
     padding: 30px 20px;
-    height: 50%;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
 }
 #answer3{
     background-color: #3399ff;
-    margin: auto;
     padding: 30px 20px;
-    height: 50%;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
 }
 #answer4{
     background-color: #ff9933;
-    margin: auto;
     padding: 30px 20px;
-    height: 50%;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
+}
+#game-over{
+    display: none;
+    text-align: center;
 }
 .square{
     border: none;
@@ -59,8 +55,28 @@
 #nextQButton{
     display: none;
 }
-#question{
+.question-answer {
+    display: flex;
+    align-items: center;
+}
+.question-answer img {
+    max-width: 100%;
+}
+.question{
     font-family: 'Raleway', sans-serif;
+    text-align: center;
+    width: 49%;
+    margin-right: 2%;
+}
+.answers {
+    width: 49%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.answers__answer {
+    width: 49%;
+    margin: 2px 0.5%;
+    box-sizing: border-box;
 }
 #timerText{
     font-family: 'Raleway', sans-serif;
