@@ -18,7 +18,7 @@ var players = new Players();
 //Mongodb setup
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
-var url = "mongodb://localhost:27017/";
+var url = "mongodb://wtq:wtq123@ds115244.mlab.com:15244/what-the-quiz";
 
 
 
@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
         //Check to see if id passed in url corresponds to id of kahoot game in database
         MongoClient.connect(url, function(err, db) {
             if (err) throw err;
-            var dbo = db.db("kahootDB");
+            var dbo = db.db("what-the-quiz");
             var query = { id:  parseInt(data.id)};
             dbo.collection('kahootGames').find(query).toArray(function(err, result){
                 if(err) throw err;
@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
                 }else{
                     socket.emit('noGameFound');
                 }
-                db.close();
+                dbo.close();
             });
         });
         
@@ -82,10 +82,9 @@ io.on('connection', (socket) => {
                 }
             }
             var gameid = game.gameData['gameid'];
-            MongoClient.connect(url, function(err, db){
+            MongoClient.connect(url, function(err, dbo){
                 if (err) throw err;
-    
-                var dbo = db.db('kahootDB');
+
                 var query = { id:  parseInt(gameid)};
                 dbo.collection("kahootGames").find(query).toArray(function(err, res) {
                     if (err) throw err;
@@ -106,7 +105,7 @@ io.on('connection', (socket) => {
                         correct: correctAnswer,
                         playersInGame: playerData.length
                     });
-                    db.close();
+                    dbo.close();
                 });
             });
             
@@ -223,10 +222,9 @@ io.on('connection', (socket) => {
             var gameQuestion = game.gameData.question;
             var gameid = game.gameData.gameid;
             
-            MongoClient.connect(url, function(err, db){
+            MongoClient.connect(url, function(err, dbo){
                 if (err) throw err;
-    
-                var dbo = db.db('kahootDB');
+
                 var query = { id:  parseInt(gameid)};
                 dbo.collection("kahootGames").find(query).toArray(function(err, res) {
                     if (err) throw err;
@@ -251,7 +249,7 @@ io.on('connection', (socket) => {
                         });
                     }
                     
-                    db.close();
+                    dbo.close();
                 });
             });
             
@@ -283,17 +281,16 @@ io.on('connection', (socket) => {
         var gameQuestion = game.gameData.question;
         var gameid = game.gameData.gameid;
             
-            MongoClient.connect(url, function(err, db){
+            MongoClient.connect(url, function(err, dbo){
                 if (err) throw err;
-    
-                var dbo = db.db('kahootDB');
+
                 var query = { id:  parseInt(gameid)};
                 dbo.collection("kahootGames").find(query).toArray(function(err, res) {
                     if (err) throw err;
                     var correctAnswer = res[0].questions[gameQuestion - 1].correct;
                     io.to(game.pin).emit('questionOver', playerData, correctAnswer);
                     
-                    db.close();
+                    dbo.close();
                 });
             });
     });
@@ -315,10 +312,9 @@ io.on('connection', (socket) => {
         
         
         
-        MongoClient.connect(url, function(err, db){
+        MongoClient.connect(url, function(err, dbo){
                 if (err) throw err;
-    
-                var dbo = db.db('kahootDB');
+
                 var query = { id:  parseInt(gameid)};
                 dbo.collection("kahootGames").find(query).toArray(function(err, res) {
                     if (err) throw err;
@@ -342,7 +338,7 @@ io.on('connection', (socket) => {
                             correct: correctAnswer,
                             playersInGame: playerData.length
                         });
-                        db.close();
+                        dbo.close();
                     }else{
                         var playersInGame = players.getPlayers(game.hostId);
                         var first = {name: "", score: 0};
@@ -438,14 +434,13 @@ io.on('connection', (socket) => {
     //Give user game names data
     socket.on('requestDbNames', function(){
         
-        MongoClient.connect(url, function(err, db){
+        MongoClient.connect(url, function(err, dbo){
             if (err) throw err;
-    
-            var dbo = db.db('kahootDB');
+
             dbo.collection("kahootGames").find().toArray(function(err, res) {
                 if (err) throw err;
                 socket.emit('gameNamesData', res);
-                db.close();
+                dbo.close();
             });
         });
         
@@ -454,9 +449,8 @@ io.on('connection', (socket) => {
     
     
     socket.on('newQuiz', function(data){
-        MongoClient.connect(url, function(err, db){
+        MongoClient.connect(url, function(err, dbo){
             if (err) throw err;
-            var dbo = db.db('kahootDB');
             dbo.collection('kahootGames').find({}).toArray(function(err, result){
                 if(err) throw err;
                 var num = Object.keys(result).length;
@@ -469,9 +463,9 @@ io.on('connection', (socket) => {
                 var game = data;
                 dbo.collection("kahootGames").insertOne(game, function(err, res) {
                     if (err) throw err;
-                    db.close();
+                    dbo.close();
                 });
-                db.close();
+                dbo.close();
                 socket.emit('startGameFromCreator', num);
             });
             
