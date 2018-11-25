@@ -149,6 +149,8 @@ socket.on('GameOver', function(data){
 
     document.getElementById('game-over').style.display = 'block';
     document.getElementById('winnerTitle').style.display = "block";
+    document.getElementById('go-home').style.display = "block";
+
     if (data.num1) {
         document.getElementById('winner1').style.display = "block";
         document.getElementById('winner1').innerHTML = "1. " + data.num1;
