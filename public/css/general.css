@@ -17,6 +17,10 @@ a {
     font-weight: bold;
 }
 
+.display-none {
+    display: none;
+}
+
 .page-flowers {
     background: url('../images/pattern-backround.png');
     background-size: 250px auto;
