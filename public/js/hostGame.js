@@ -142,9 +142,9 @@ socket.on('GameOver', function(data){
     document.getElementById('answer2').style.display = "none";
     document.getElementById('answer3').style.display = "none";
     document.getElementById('answer4').style.display = "none";
-    document.getElementById('question').style.display = "none";
     document.getElementById('timerText').innerHTML = "";
     document.getElementById('playersAnswered').innerHTML = "";
+    document.querySelector('.question').style.display = "none";
 
 
     document.getElementById('game-over').style.display = 'block';

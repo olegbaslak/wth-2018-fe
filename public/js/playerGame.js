@@ -94,10 +94,10 @@ socket.on('playerGameData', function(data){
 
 socket.on('GameOver', function(){
     frame.style.backgroundColor = "#FFFFFF";
-    document.getElementById('answer1').style.visibility = "hidden";
-    document.getElementById('answer2').style.visibility = "hidden";
-    document.getElementById('answer3').style.visibility = "hidden";
-    document.getElementById('answer4').style.visibility = "hidden";
+    document.getElementById('answer1').style.display = 'none';
+    document.getElementById('answer2').style.display = 'none';
+    document.getElementById('answer3').style.display = 'none';
+    document.getElementById('answer4').style.display = 'none';
     document.getElementById('message').style.display = "block";
     document.getElementById('go-home').style.display = "block";
     document.getElementById('message').innerHTML = "GAME OVER <br><img src='/images/memovedenie.jpg'>";
