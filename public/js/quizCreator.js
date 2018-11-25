@@ -6,7 +6,7 @@ function updateDatabase(){
     var qty = document.getElementById('qty').value;
 
     showLoader();
-    fetch(`https://wth-wiki-qwiz-be.herokuapp.com/api/trivia/${qty}?s=Meme`)
+    fetch(`https://wth-wiki-qwiz-be.herokuapp.com/api/trivia/${qty}?s=Any`)
         .then(response => response.json())
         .then(json => {
             hideLoader();
